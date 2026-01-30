@@ -1,11 +1,9 @@
-app.yamlversion: '2'
+version: '2'
 services:
   api:
     name: api
     image: python:3.9-slim
     build_command: pip install -r requirements.txt && python server.py
     run_command: python server.py
-    env_vars:
-      - name: PORT
-        value: 5000
     http_port: 5000
+    health_check_path: /
